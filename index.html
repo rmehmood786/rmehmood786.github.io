@@ -6,7 +6,6 @@
   <title>Rashid Mehmood — AI • Gait Analysis • ESNs</title>
   <meta name="description" content="AI & ML Engineer focusing on gait analysis, human motion, and Echo State Networks. Demos, projects, and contact." />
   <link rel="canonical" href="https://rmehmood786.github.io/" />
-  <!-- keep your verification -->
   <meta name="google-site-verification" content="7ptE0OL6iHVT7y3OfNE6Qffu-N2B2Ly-kgEtU0DxpIs" />
 
   <style>
@@ -14,29 +13,53 @@
     *{box-sizing:border-box}
     html,body{margin:0;background:linear-gradient(180deg,#090e1b 0%,#0b1020 100%);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
     a{color:var(--accent);text-decoration:none} a:hover{opacity:.9}
+
     .wrap{max-width:1100px;margin:0 auto;padding:28px}
     header{display:grid;grid-template-columns:1fr;gap:14px;padding:34px 0 8px}
     .tag{display:inline-block;padding:6px 12px;border:1px solid #263255;border-radius:999px;color:var(--muted);font-size:.9rem;background:#0e1530}
     h1{font-size:2.2rem;margin:.25rem 0 .5rem;letter-spacing:.2px}
     .lead{color:var(--muted);max-width:880px}
-    .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:var(--accent);color:#071022;font-weight:600;box-shadow:var(--shadow)}
-    .btn.secondary{background:#1a2447;color:var(--text);border:1px solid #24305a}
-    .grid{margin-top:28px;display:grid;gap:18px;grid-template-columns:repeat(12,1fr)}
-    .card{grid-column:span 12;background:var(--card);border:1px solid #202a50;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    
+    /* Buttons */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 16px;min-height:44px;min-width:44px;
+      border-radius:12px;background:var(--accent);color:#071022;
+      font-weight:700;border:0;box-shadow:var(--shadow);cursor:pointer;
+      transition:transform .04s ease, box-shadow .2s ease, opacity .2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn:focus-visible{outline:3px solid #b7d3ff;outline-offset:2px}
+    .btn.secondary{background:#1a2447;color:var(--text);border:1px solid #2a3761}
+    .btn.ghost{background:transparent;border:1px solid #2a3761;color:var(--muted)}
+    .btn.block{width:100%}
+
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .card{background:var(--card);border:1px solid #202a50;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .card:hover{box-shadow:0 14px 36px rgba(0,0,0,.45)}
     .card h3{margin:0 0 6px;font-size:1.25rem}
     .meta{color:var(--muted);font-size:.95rem;margin-bottom:10px}
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .chip{font-size:.8rem;color:var(--muted);padding:6px 10px;border:1px solid #2a3761;border-radius:999px;background:#0e1530}
-    .split{display:grid;grid-template-columns:1fr;gap:18px}
-    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .grid{margin-top:28px;display:grid;gap:22px;grid-template-columns:repeat(12,1fr)}
+    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
     footer{margin:36px 0 14px;color:var(--muted);font-size:.9rem;text-align:center}
+    
+    /* Toast */
+    .toast{
+      position:fixed;left:50%;bottom:24px;transform:translateX(-50%);
+      background:#0e1530;border:1px solid #2a3761;color:var(--text);
+      padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;
+      transition:opacity .2s ease; z-index:9999;
+    }
+    .toast.show{opacity:1}
+
     @media (min-width:740px){
       header{grid-template-columns:1.2fr .8fr;align-items:center}
-      .split{grid-template-columns:1fr 1fr}
-      .card--span6{grid-column:span 6}
-      .card--span4{grid-column:span 4}
       .card--span8{grid-column:span 8}
+      .card--span4{grid-column:span 4}
     }
   </style>
 </head>
@@ -54,7 +77,10 @@
         <div class="cta-row">
           <a class="btn" href="https://github.com/rmehmood786" target="_blank" rel="noopener">GitHub Profile</a>
           <a class="btn secondary" href="https://www.linkedin.com/in/rashid-mehmood-aimachinelearningengineer" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn secondary" href="mailto:rashidmehmood5914@gmail.com">Email me</a>
+          <a class="btn ghost" 
+             href="mailto:rashidmehmood5914@gmail.com?subject=Hello%20Rashid%20—%20from%20your%20GitHub.io&body=Hi%20Rashid,%0D%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20connect%20about..."
+          >Email me</a>
+          <button class="btn ghost" onclick="copyEmail()">Copy email</button>
         </div>
       </div>
       <div class="card">
@@ -72,16 +98,16 @@
       <article class="card card--span8">
         <h3>Gait Event & Sub-phase Pipeline</h3>
         <p class="meta">Computer Vision • Signal Processing • Python/OpenCV/NumPy/SciPy</p>
-        <div class="split">
-          <div>
-            <p>Batch pipeline from walking videos + OpenPose JSON to <b>events</b> (heel-strike, toe-off, foot-flat),
-              <b>8 sub-phases</b>, annotated MP4s, Excel reports, and QC plots.</p>
-            <div class="chips">
-              <span class="chip">OpenPose</span><span class="chip">Time-series</span><span class="chip">Biomechanics</span>
-              <span class="chip">Savgol</span><span class="chip">Hampel</span>
-            </div>
-          </div>
-          <div class="links"><a class="btn" href="mailto:rashidmehmood5914@gmail.com">Request demo</a></div>
+        <p>Batch pipeline from walking videos + OpenPose JSON to <b>events</b> (heel-strike, toe-off, foot-flat),
+          <b>8 sub-phases</b>, annotated MP4s, Excel reports, and QC plots.</p>
+        <div class="chips">
+          <span class="chip">OpenPose</span><span class="chip">Time-series</span><span class="chip">Biomechanics</span>
+          <span class="chip">Savgol</span><span class="chip">Hampel</span>
+        </div>
+        <div class="links">
+          <a class="btn block"
+             href="mailto:rashidmehmood5914@gmail.com?subject=Gait%20pipeline%20demo%20request&body=Hi%20Rashid,%0D%0AI%20would%20like%20a%20demo%20of%20your%20gait%20pipeline..."
+          >Request demo</a>
         </div>
       </article>
 
@@ -93,10 +119,6 @@
           <a class="btn" href="https://github.com/rmehmood786/Reservoir-computing-and-Echo-State-Network-ESN-" target="_blank" rel="noopener">GitHub</a>
           <a class="btn secondary" href="https://colab.research.google.com/github/rmehmood786/Reservoir-computing-and-Echo-State-Network-ESN-/blob/main/Reservoir_computing.ipynb" target="_blank" rel="noopener">Open in Colab</a>
         </div>
-        <div class="chips" style="margin-top:10px">
-          <span class="chip">echo-state-network</span><span class="chip">reservoir-computing</span>
-          <span class="chip">time-series</span><span class="chip">pytorch/python</span>
-        </div>
       </article>
 
       <article class="card card--span4">
@@ -104,7 +126,6 @@
         <p class="meta">Cryptography • Python utility</p>
         <p>Fibonacci LFSR with reconfigurable taps, period check, and %-agreement helper.</p>
         <div class="links"><a class="btn" href="https://github.com/rmehmood786/Linear-Feedback-Shift-Register" target="_blank" rel="noopener">GitHub</a></div>
-        <div class="chips"><span class="chip">python</span><span class="chip">lfsr</span></div>
       </article>
 
       <article class="card card--span4">
@@ -112,9 +133,8 @@
         <p class="meta">scikit-learn • feature engineering • baseline forecasting</p>
         <p>Cleaned Colab notebook for time-aware splits, lag/rolling features, and simple 30-day demos.</p>
         <div class="links">
-          <a class="btn secondary" href="https://colab.research.google.com/github/rmehmood786/covid19-prediction/blob/main/notebooks/Covid19_Prediction_Clean.ipynb" target="_blank" rel="noopener">Colab</a>
+          <a class="btn secondary" href="https://colab.research.google.com/github/rmehmood786/covid19-prediction/blob/main/Covid_19_prediction.ipynb" target="_blank" rel="noopener">Colab</a>
         </div>
-        <div class="chips"><span class="chip">time-series</span><span class="chip">scikit-learn</span></div>
       </article>
 
       <article class="card card--span8">
@@ -124,7 +144,6 @@
           <li>In prep (2025): <i>Gait Phase Identification and Feature Extraction</i> (Mehmood, Topham, Khan).</li>
           <li>In prep: <i>AI-Powered Wearables in Pediatric Health Monitoring</i> (Alblushi, Mehmood, Hussain, Almajali).</li>
         </ul>
-        <div class="links"><a class="btn secondary" href="https://github.com/rmehmood786" target="_blank" rel="noopener">More on GitHub</a></div>
       </article>
     </section>
 
@@ -135,6 +154,18 @@
       <a href="https://github.com/rmehmood786" target="_blank" rel="noopener">GitHub</a>
     </footer>
   </div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite">Email copied</div>
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+    function copyEmail(){
+      const email = "rashidmehmood5914@gmail.com";
+      navigator.clipboard?.writeText(email).then(()=>{
+        const t=document.getElementById('toast'); t.classList.add('show');
+        setTimeout(()=>t.classList.remove('show'),1500);
+      }).catch(()=>{ alert(email); });
+    }
+  </script>
 </body>
 </html>
