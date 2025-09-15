@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Rashid Mehmood — AI • Gait Analysis • ESNs</title>
   <meta name="description" content="AI & ML Engineer focusing on gait analysis, human motion, and Echo State Networks. Demos, projects, and contact." />
   <link rel="canonical" href="https://rmehmood786.github.io/" />
@@ -54,6 +54,32 @@
       display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;
       overflow:hidden;text-overflow:ellipsis;
     }
+    
+    /* iOS text zoom + font rendering */
+html { -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; }
+
+/* Respect iOS safe areas (Dynamic Island / notch) */
+body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+
+/* iOS default button appearance can leak through */
+button, .btn {
+  -webkit-appearance: none; appearance: none;
+  border: 0;
+}
+
+/* Older iOS (pre 14.5) has buggy flex-gap — provide a fallback */
+@supports not (gap: 1rem) {
+  .cta-row > * + *, .links > * + * { margin-left: 10px; }
+}
+
+/* Prevent weird wrapping on long words/links */
+.clamp-3 { overflow-wrap: anywhere; }
+
+/* Reduce iOS tap highlight overlay */
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+/* Make buttons look identical across <a> and <button> */
+a.btn { color: #071022 !important; text-decoration: none; }
 
     footer{margin:36px 0 14px;color:var(--muted);font-size:.9rem;text-align:center}
 
