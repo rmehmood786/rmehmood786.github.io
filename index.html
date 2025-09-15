@@ -20,11 +20,11 @@
     h1{font-size:2.2rem;margin:.25rem 0 .5rem;letter-spacing:.2px}
     .lead{color:var(--muted);max-width:880px}
 
-    /* ---------- Buttons: single consistent style ---------- */
+    /* ---------- Buttons (single consistent style) ---------- */
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
       padding:12px 16px;min-height:44px;min-width:44px;
-      border-radius:12px;background:var(--accent);color:#071022;
+      border-radius:12px;background:var(--accent);color:#071022 !important;
       font-weight:700;border:0;box-shadow:var(--shadow);cursor:pointer;
       transition:transform .04s ease, box-shadow .2s ease, opacity .2s ease;
     }
@@ -32,18 +32,28 @@
     .btn:active{transform:translateY(0)}
     .btn:focus-visible{outline:3px solid #b7d3ff;outline-offset:2px}
     .btn.block{width:100%}
-    /* make anchor + button identical */
-    a.btn{color:#071022}
 
     .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .card{background:var(--card);border:1px solid #202a50;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+
+    /* ---------- Cards & grid ---------- */
+    .grid{margin-top:28px;display:grid;gap:22px;grid-template-columns:repeat(12,1fr)}
+    .card{
+      background:var(--card);border:1px solid #202a50;border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:22px;display:flex;flex-direction:column;min-height:220px;
+    }
     .card:hover{box-shadow:0 14px 36px rgba(0,0,0,.45)}
     .card h3{margin:0 0 6px;font-size:1.25rem}
     .meta{color:var(--muted);font-size:.95rem;margin-bottom:10px}
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .chip{font-size:.8rem;color:var(--muted);padding:6px 10px;border:1px solid #2a3761;border-radius:999px;background:#0e1530}
-    .grid{margin-top:28px;display:grid;gap:22px;grid-template-columns:repeat(12,1fr)}
-    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .card-content{display:flex;flex-direction:column;gap:10px;min-height:1px}
+    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto} /* stick to bottom */
+
+    /* clamp helper for long text */
+    .clamp-3{
+      display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;
+      overflow:hidden;text-overflow:ellipsis;
+    }
 
     footer{margin:36px 0 14px;color:var(--muted);font-size:.9rem;text-align:center}
 
@@ -78,7 +88,6 @@
         <div class="cta-row">
           <a class="btn" href="https://github.com/rmehmood786" target="_blank" rel="noopener">GitHub Profile</a>
           <a class="btn" href="https://www.linkedin.com/in/rashid-mehmood-aimachinelearningengineer" target="_blank" rel="noopener">LinkedIn</a>
-          <!-- Email me (Gmail compose + mailto fallback) -->
           <a class="btn" href="#" onclick="return openEmail('Hello Rashid — from your GitHub.io','Hi Rashid,%0A%0AI saw your portfolio and wanted to connect about...');">Email me</a>
           <button class="btn" onclick="copyEmail()">Copy email</button>
         </div>
@@ -96,53 +105,69 @@
     </header>
 
     <section class="grid">
+      <!-- GAIT -->
       <article class="card card--span8">
-        <h3>Gait Event & Sub-phase Pipeline</h3>
-        <p class="meta">Computer Vision • Signal Processing • Python/OpenCV/NumPy/SciPy</p>
-        <p>Batch pipeline from walking videos + OpenPose JSON to <b>events</b> (heel-strike, toe-off, foot-flat),
-          <b>8 sub-phases</b>, annotated MP4s, Excel reports, and QC plots.</p>
-        <div class="chips">
-          <span class="chip">OpenPose</span><span class="chip">Time-series</span><span class="chip">Biomechanics</span>
-          <span class="chip">Savgol</span><span class="chip">Hampel</span>
+        <div class="card-content">
+          <h3>Gait Event & Sub-phase Pipeline</h3>
+          <p class="meta">Computer Vision • Signal Processing • Python/OpenCV/NumPy/SciPy</p>
+          <p class="clamp-3">Batch pipeline from walking videos + OpenPose JSON to <b>events</b> (heel-strike, toe-off, foot-flat), <b>8 sub-phases</b>, annotated MP4s, Excel reports, and QC plots.</p>
+          <div class="chips">
+            <span class="chip">OpenPose</span><span class="chip">Time-series</span><span class="chip">Biomechanics</span>
+            <span class="chip">Savgol</span><span class="chip">Hampel</span>
+          </div>
         </div>
         <div class="links">
           <a class="btn block" href="#" onclick="return openEmail('Gait pipeline demo request','Hi Rashid,%0A%0AProject name:%20%0ADataset/source:%20%0ATimeline:%20%0A%0ARegards,');">Request demo</a>
         </div>
       </article>
 
+      <!-- ESN -->
       <article class="card card--span4">
-        <h3>Echo State Networks (ESN) Experiments</h3>
-        <p class="meta">Reservoir Computing • MNIST • ECG5000 • Weight init study</p>
-        <p>ESN vs Linear Regression; experiments on MNIST & ECG5000; analysis of reservoir weight initialization.</p>
+        <div class="card-content">
+          <h3>Echo State Networks (ESN) Experiments</h3>
+          <p class="meta">Reservoir Computing • MNIST • ECG5000 • Weight init study</p>
+          <p class="clamp-3">ESN vs Linear Regression; experiments on MNIST &amp; ECG5000; analysis of reservoir weight initialization.</p>
+        </div>
         <div class="links">
           <a class="btn" href="https://github.com/rmehmood786/Reservoir-computing-and-Echo-State-Network-ESN-" target="_blank" rel="noopener">GitHub</a>
           <a class="btn" href="https://colab.research.google.com/github/rmehmood786/Reservoir-computing-and-Echo-State-Network-ESN-/blob/main/Reservoir_computing.ipynb" target="_blank" rel="noopener">Open in Colab</a>
         </div>
       </article>
 
+      <!-- LFSR -->
       <article class="card card--span4">
-        <h3>Linear Feedback Shift Register (LFSR)</h3>
-        <p class="meta">Cryptography • Python utility</p>
-        <p>Fibonacci LFSR with reconfigurable taps, period check, and %-agreement helper.</p>
-        <div class="links"><a class="btn" href="https://github.com/rmehmood786/Linear-Feedback-Shift-Register" target="_blank" rel="noopener">GitHub</a></div>
+        <div class="card-content">
+          <h3>Linear Feedback Shift Register (LFSR)</h3>
+          <p class="meta">Cryptography • Python utility</p>
+          <p class="clamp-3">Fibonacci LFSR with reconfigurable taps, period check, and %-agreement helper.</p>
+        </div>
+        <div class="links">
+          <a class="btn" href="https://github.com/rmehmood786/Linear-Feedback-Shift-Register" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </article>
 
+      <!-- COVID -->
       <article class="card card--span4">
-        <h3>COVID-19 Prediction (notebook)</h3>
-        <p class="meta">scikit-learn • feature engineering • baseline forecasting</p>
-        <p>Cleaned Colab notebook for time-aware splits, lag/rolling features, and simple 30-day demos.</p>
+        <div class="card-content">
+          <h3>COVID-19 Prediction (notebook)</h3>
+          <p class="meta">scikit-learn • feature engineering • baseline forecasting</p>
+          <p class="clamp-3">Cleaned Colab notebook for time-aware splits, lag/rolling features, and simple 30-day demos.</p>
+        </div>
         <div class="links">
           <a class="btn" href="https://colab.research.google.com/github/rmehmood786/covid19-prediction/blob/main/Covid_19_prediction.ipynb" target="_blank" rel="noopener">Colab</a>
         </div>
       </article>
 
+      <!-- ABOUT -->
       <article class="card card--span8">
-        <h3>About & Publications</h3>
-        <p class="meta">Human motion analysis • ML for health</p>
-        <ul>
-          <li>In prep (2025): <i>Gait Phase Identification and Feature Extraction</i> (Mehmood, Topham, Khan).</li>
-          <li>In prep: <i>AI-Powered Wearables in Pediatric Health Monitoring</i> (Alblushi, Mehmood, Hussain, Almajali).</li>
-        </ul>
+        <div class="card-content">
+          <h3>About & Publications</h3>
+          <p class="meta">Human motion analysis • ML for health</p>
+          <ul>
+            <li>In prep (2025): <i>Gait Phase Identification and Feature Extraction</i> (Mehmood, Topham, Khan).</li>
+            <li>In prep: <i>AI-Powered Wearables in Pediatric Health Monitoring</i> (Alblushi, Mehmood, Hussain, Almajali).</li>
+          </ul>
+        </div>
       </article>
     </section>
 
@@ -174,11 +199,9 @@
     function openEmail(subject, body){
       const to = "rashidmehmood5914@gmail.com";
       const gmail = `https://mail.google.com/mail/?view=cm&to=${to}&su=${encodeURIComponent(subject)}&body=${body}`;
-      // open Gmail compose
-      window.open(gmail, '_blank', 'noopener');
-      // also trigger default mail client as a fallback
-      window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
-      return false; // prevent default anchor navigation
+      window.open(gmail, '_blank', 'noopener');     // Gmail
+      window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`; // fallback
+      return false;
     }
   </script>
 </body>
