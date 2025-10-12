@@ -41,8 +41,7 @@ It serves as my professional landing page where you can:
 ---
 
 ## 🤝 Contributing
-This repo is meant as a **personal website**, so direct contributions aren’t needed.  
-However, I’m always open to collaboration on **AI, ML, human motion, and digital health projects** — feel free to reach out!
+This repo is meant as a **personal website**, I’m always open to collaboration on **AI, ML, human motion, and digital health projects** — feel free to reach out!
 
 ---
 
