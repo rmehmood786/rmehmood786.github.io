@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Generative AI in Healthcare — Evidence Overview</title>
+<style>
+  :root{
+    --bg:#ffffff; --ink:#0f172a; --muted:#4b5563; --rule:#e5e7eb;
+    --blue:#eaf2ff; --purple:#f3ecff; --green:#e9f9ec; --red:#ffeaea; --amber:#fff4db; --gray:#f7f7f7;
+    --stroke:#93a1b0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0b1020; --ink:#e5e7eb; --muted:#a3aab7; --rule:#1f2a44;
+           --blue:#0f274a; --purple:#231c3c; --green:#0f2a1f; --red:#3a1510; --amber:#3a2a0f; --gray:#141a2a; --stroke:#3a4a66;}
+  }
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:1200px;margin:40px auto;padding:0 20px;}
+  h1{font-size:clamp(24px,3.2vw,36px);line-height:1.2;margin:0 0 6px;font-weight:800;text-align:center;}
+  h2{font-size:18px;margin:0 0 6px;font-weight:800;}
+  p.lead{color:var(--muted);text-align:center;margin:0 0 24px;}
+  .legend{display:flex;gap:16px;justify-content:center;align-items:center;margin:10px 0 24px;flex-wrap:wrap}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;border:1px solid var(--stroke)}
+  .dot.apps{background:var(--blue)} .dot.meds{background:var(--purple)} .dot.out{background:var(--green)}
+  .dot.risks{background:var(--red)} .dot.glob{background:var(--amber)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:900px){ .grid{grid-template-columns:1fr} }
+  .card{
+    background:#fff; background:var(--bg);
+    border:1px solid var(--rule); border-radius:14px; padding:16px 18px 14px;
+    box-shadow:0 1px 0 rgba(0,0,0,.04);
+  }
+  .t-apps{background:linear-gradient(0deg,var(--blue),var(--blue)) padding-box;border:1px solid var(--rule)}
+  .t-meds{background:linear-gradient(0deg,var(--purple),var(--purple)) padding-box;border:1px solid var(--rule)}
+  .t-out{background:linear-gradient(0deg,var(--green),var(--green)) padding-box;border:1px solid var(--rule)}
+  .t-risks{background:linear-gradient(0deg,var(--red),var(--red)) padding-box;border:1px solid var(--rule)}
+  .t-glob{background:linear-gradient(0deg,var(--amber),var(--amber)) padding-box;border:1px solid var(--rule)}
+  .card h2{margin-bottom:8px}
+  ul{margin:0;padding-left:20px}
+  li{margin:4px 0}
+  .foot{margin-top:22px;border-top:1px solid var(--rule);padding-top:10px;color:var(--muted);font-size:14px;text-align:center}
+  /* Print = nice margins and no shadows */
+  @page{size:A4;margin:18mm}
+  @media print{
+    .wrap{max-width:none;margin:0;padding:0}
+    .card{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    a{color:inherit;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Generative AI in Healthcare — Evidence Overview (2024–2025)</h1>
+    <p class="lead">Adoption · Applications · Mediators · Outcomes · Risks · Global Programs</p>
+
+    <div class="legend">
+      <span><i class="dot apps"></i>Applications</span>
+      <span><i class="dot meds"></i>Mediators</span>
+      <span><i class="dot out"></i>Outcomes</span>
+      <span><i class="dot risks"></i>Risks</span>
+      <span><i class="dot glob"></i>Global</span>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Adoption (2024–2025)</h2>
+        <ul>
+          <li><strong>86%</strong> of health orgs report some AI use (<em>HIMSS 2024</em>).</li>
+          <li><strong>100% (43/43)</strong> U.S. systems piloting ambient notes (<em>Poon et&nbsp;al., 2025</em>).</li>
+          <li>Imaging AI in ~<strong>90%</strong> of systems (late-2024 surveys).</li>
+        </ul>
+      </section>
+
+      <section class="card t-apps">
+        <h2>Applications (model/vendor examples)</h2>
+        <ul>
+          <li>Documentation (ambient scribes): <em>Nuance DAX Copilot, Abridge, TORTUS (UK), Suki</em>.</li>
+          <li>Patient communication: <em>GPT-4</em> drafts integrated with Epic <em>In Basket</em>.</li>
+          <li>Decision support / medical QA: <em>Med-PaLM 2</em>, tuned GPT-4, retrieval-augmented QA.</li>
+        </ul>
+      </section>
+
+      <section class="card t-meds">
+        <h2>Mediators (implementation factors)</h2>
+        <ul>
+          <li>Workflow fit &amp; clinician training drive value.</li>
+          <li>Human oversight &amp; sign-off; audit trail.</li>
+          <li>Validation frameworks: <em>NHS ambient-scribe (2025); FDA SaMD AI/ML; WHO LMM guidance</em>.</li>
+        </ul>
+      </section>
+
+      <section class="card t-out">
+        <h2>Outcomes (quantified)</h2>
+        <ul>
+          <li>Efficiency: ~<strong>16k</strong> clinician hours saved; ~<strong>7,260</strong> users (Kaiser, 15 mo).</li>
+          <li>Experience/throughput: <strong>+23.5%</strong> face-to-face; <strong>−8.2%</strong> visit length (NHS London pilot).</li>
+          <li>Communication: <strong>78.5%</strong> high-quality; <strong>45.1%</strong> empathetic (Ayers <em>JAMA IM</em> 2023).</li>
+        </ul>
+      </section>
+
+      <section class="card t-risks">
+        <h2>Risks &amp; safeguards</h2>
+        <ul>
+          <li>Hallucination (medical citation tasks): GPT-4 ≈ <strong>28.6%</strong>; GPT-3.5 ≈ <strong>39.6%</strong>.</li>
+          <li>Misinformation, bias, privacy &amp; consent risks.</li>
+          <li>Mitigate with: RAG over curated corpora; adversarial tests; DPIAs; subgroup metrics; post-market monitoring.</li>
+        </ul>
+      </section>
+
+      <section class="card t-glob">
+        <h2>Global programs (examples)</h2>
+        <ul>
+          <li><strong>NHS England</strong>: ambient-scribe guidance; screening testbeds; A&amp;E throughput gains.</li>
+          <li><strong>United States</strong>: Epic GPT-4 In-Basket &amp; ambient deployments.</li>
+          <li><strong>Asia-Pacific</strong>: Ping An telehealth; Australian scribe pilots.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="foot">
+      Sources (examples): HIMSS/Medscape Analytics 2024; Poon et al., <em>NPJ Digit Med</em> 2025; NHS England ambient-scribe guidance 2025;
+      Kaiser Permanente deployment updates 2025; Ayers et al., <em>JAMA Internal Medicine</em> 2023; JMIR hallucination accuracy 2024; WHO LMM 2025; FDA SaMD AI/ML.
+    </div>
+  </div>
+</body>
+</html>
