@@ -1,278 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Rashid Mehmood — Computer Vision • Gait Analysis • ESNs</title>
-  <meta name="description" content="Computer Vision researcher focused on gait analysis, human motion, and Echo State Networks. Explore projects, experiments, and contact details." />
-  <link rel="canonical" href="https://rmehmood786.github.io/" />
-  <meta name="theme-color" content="#0b1020" />
-  <meta name="color-scheme" content="dark light">
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Rashid Mehmood — Computer Vision • Gait Analysis" />
-  <meta property="og:description" content="AI-driven human motion analysis: gait event detection, phase segmentation, and ESN research." />
-  <meta property="og:url" content="https://rmehmood786.github.io/" />
-  <meta property="og:image" content="/og-card.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Site verification (kept) -->
-  <meta name="google-site-verification" content="7ptE0OL6iHVT7y3OfNE6Qffu-N2B2Ly-kgEtU0DxpIs" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Rashid Mehmood",
-    "jobTitle": "Computer Vision Researcher",
-    "affiliation": {"@type":"Organization","name":"Liverpool John Moores University"},
-    "email": "mailto:rashidmehmood5914@gmail.com",
-    "url": "https://rmehmood786.github.io/",
-    "sameAs": [
-      "https://github.com/rmehmood786",
-      "https://www.linkedin.com/in/rashid-mehmood-aimachinelearningengineer"
-    ]
-  }
-  </script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rashid Mehmood – AI Researcher | Computer Vision | GenAI</title>
   <style>
-    :root{
-      --bg:#0b1020;--bg-2:#090e1b;--card:#121831;--muted:#9fb0d1;--text:#eef3ff;--accent:#6ea8ff;--focus:#b7d3ff;
-      --border:#202a50;--chip:#0e1530;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{opacity:.9}
-    img{max-width:100%;display:block}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px}
-
-    /* Skip link for a11y */
-    .skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip:focus{left:16px;top:16px;width:auto;height:auto;padding:10px 14px;background:#122047;color:#fff;border-radius:12px;z-index:999}
-
-    /* Header / Nav */
-    header{display:grid;grid-template-columns:1fr;gap:14px;padding:20px 0 8px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
-    .brand{display:flex;align-items:center;gap:.6rem}
-    .brand .avatar{width:40px;height:40px;border-radius:50%;background:#162246;border:1px solid var(--border)}
-    .brand .name{font-weight:800;letter-spacing:.2px}
-    nav{display:flex;gap:10px;flex-wrap:wrap}
-    .navlink{padding:8px 12px;border:1px solid #263255;border-radius:999px;color:var(--muted);background:#0e1530}
-
-    .tag{display:inline-block;padding:6px 12px;border:1px solid #263255;border-radius:999px;color:var(--muted);font-size:.9rem;background:#0e1530}
-    h1{font-size:2.25rem;margin:.25rem 0 .5rem;letter-spacing:.2px}
-    .lead{color:var(--muted);max-width:880px}
-
-    /* CTA Button */
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;min-height:44px;min-width:44px;border-radius:12px;background:var(--accent);color:#071022 !important;font-weight:700;border:0;box-shadow:var(--shadow);cursor:pointer;transition:transform .04s ease,box-shadow .2s ease,opacity .2s ease}
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0)}
-    .btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
-    .btn.block{width:100%}
-    .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-
-    /* Cards & layout */
-    .grid{margin-top:28px;display:grid;gap:22px;grid-template-columns:1fr}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;display:flex;flex-direction:column;min-height:240px;width:100%;overflow:hidden}
-    .card:hover{box-shadow:0 14px 36px rgba(0,0,0,.45)}
-    .card h3{margin:0 0 6px;font-size:1.25rem}
-    .meta{color:var(--muted);font-size:.95rem;margin-bottom:10px}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .chip{font-size:.8rem;color:var(--muted);padding:6px 10px;border:1px solid #2a3761;border-radius:999px;background:var(--chip)}
-    .card-content{display:flex;flex-direction:column;gap:10px;min-height:1px}
-    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
-    .clamp-3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;text-overflow:ellipsis}
-
-    footer{margin:36px 0 14px;color:var(--muted);font-size:.9rem;text-align:center}
-
-    /* Toast */
-    #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#162549;border:1px solid #24407f;color:#dfe8ff;padding:10px 14px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease}
-    #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-    /* Motion preference */
-    @media (prefers-reduced-motion: reduce){
-      .btn{transition:none}
-      .card:hover{box-shadow:var(--shadow)}
+    :root {
+      --bg: #0b1020;
+      --fg: #eef3ff;
+      --accent: #6ea8ff;
+      --card-bg: #121831;
+      --muted: #9fb0d1;
+      --radius: 10px;
+      --max-width: 1000px;
     }
 
-    /* Desktop */
-    @media (min-width:740px){
-      header{grid-template-columns:1.2fr .8fr;align-items:center}
-      .grid{grid-template-columns:repeat(12,1fr)}
-      .card--span8{grid-column:span 8}
-      .card--span4{grid-column:span 4}
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, sans-serif;
+      line-height: 1.7;
     }
 
-    /* General niceties */
-    html{ -webkit-text-size-adjust:100%; -webkit-font-smoothing:antialiased }
-    body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:calc(env(safe-area-inset-bottom) + 16px)}
-    button,.btn{appearance:none;border:0}
-    .clamp-3{ overflow-wrap:anywhere }
-    h1,h3,p,.chip{ overflow-wrap:anywhere; word-break:break-word }
-    html,body,.wrap{ overflow-x:hidden }
-    *{ -webkit-tap-highlight-color:rgba(0,0,0,0) }
-    a.btn{ color:#071022 !important; text-decoration:none }
+    header {
+      background: var(--bg);
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    header .subheading {
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin-top: 3rem;
+    }
+
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid #2a3758;
+      padding-bottom: 0.4rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.2rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid #263255;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 3rem 0 1.5rem;
+    }
   </style>
 </head>
 <body>
-  <a href="#main" class="skip">Skip to content</a>
+  <header>
+    <h1>Rashid Mehmood</h1>
+    <div class="subheading">Computer Vision • Gait Analysis • GenAI • ESNs</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <div class="wrap">
-    <header>
-      <div>
-        <div class="topbar" aria-label="Primary">
-          <div class="brand">
-            <div class="avatar" aria-hidden="true"></div>
-            <span class="name">Rashid Mehmood</span>
-          </div>
-          <nav aria-label="Site">
-            <a class="navlink" href="#projects">Projects</a>
-            <a class="navlink" href="#about">About</a>
-            <a class="navlink" href="#contact">Contact</a>
-          </nav>
-        </div>
-
-        <span class="tag" aria-label="Keywords">AI • ML • Human Motion</span>
-        <h1>Computer Vision for Gait & Human Motion</h1>
-        <p class="lead">
-          I build end‑to‑end pipelines (<b>video → keypoints → events/sub‑phases → annotated outputs</b>) and research
-          time‑series models (incl. <b>Echo State Networks</b>) for digital health and safety.
-        </p>
-
-        <div class="cta-row" id="contact">
-          <a class="btn" href="https://github.com/rmehmood786" target="_blank" rel="noopener">GitHub Profile</a>
-          <a class="btn" href="https://www.linkedin.com/in/rashid-mehmood-aimachinelearningengineer" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="#" onclick="return openEmail('Hello from your portfolio','Hi Rashid,%0A%0AI saw your portfolio and wanted to connect about...');">Email me</a>
-          <button class="btn" type="button" onclick="copyEmail()">Copy email</button>
-        </div>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>I am an AI researcher with strong focus on human motion understanding, computer vision, and generative AI. My work includes building pipelines from raw sensor/video data to meaningful events like gait segmentation, working with reservoir computing, and leveraging GenAI for research assistance. I collaborate with Liverpool John Moores University on applied machine learning for health and safety.</p>
       </div>
+    </section>
 
-      <aside class="card" aria-labelledby="now">
-        <h3 id="now">Now</h3>
-        <p class="meta">Research Collaborator @ Liverpool John Moores University</p>
-        <ul class="lead" style="margin:0;padding-left:18px">
-          <li>Gait phase segmentation (HS/TO/FF) & sub‑phase detection</li>
-          <li>Pose cleaning (gap fill, Hampel, Savitzky–Golay), QC dashboards</li>
-          <li>Reservoir Computing / Echo State Networks for time‑series</li>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Languages:</strong> Python, JavaScript, Bash, SQL</li>
+          <li><strong>Frameworks:</strong> PyTorch, OpenCV, scikit-learn, TensorFlow</li>
+          <li><strong>AI/ML:</strong> GenAI (Prompting, LLM Tools), Time-Series Modeling, Echo State Networks, CNNs</li>
+          <li><strong>Tools:</strong> Git, Linux, Colab, GitHub Pages, VSCode, Figma</li>
         </ul>
-      </aside>
-    </header>
+      </div>
+    </section>
 
-    <main id="main" tabindex="-1">
-      <section id="projects" class="grid" aria-label="Featured projects">
-        <!-- GAIT -->
-        <article class="card card--span8">
-          <div class="card-content">
-            <h3>Gait Event & Sub‑phase Pipeline</h3>
-            <p class="meta">Computer Vision • Signal Processing • Python/OpenCV/NumPy/SciPy</p>
-            <p class="clamp-3">Batch pipeline from walking videos + OpenPose JSON to <b>events</b> (heel‑strike, toe‑off, foot‑flat), <b>8 sub‑phases</b>, annotated MP4s, Excel reports, and QC plots.</p>
-            <div class="chips" aria-label="Technologies">
-              <span class="chip">OpenPose</span><span class="chip">Time‑series</span><span class="chip">Biomechanics</span>
-              <span class="chip">Savitzky–Golay</span><span class="chip">Hampel</span>
-            </div>
-          </div>
-          <div class="links">
-            <a class="btn block" href="#" onclick="return openEmail('Gait pipeline demo request','Hi Rashid,%0A%0AProject name:%20%0ADataset/source:%20%0ATimeline:%20%0A%0ARegards,');">Request demo</a>
-          </div>
-        </article>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Gait Event Detection & Sub-phase Segmentation</h3>
+        <p class="meta">OpenPose • Signal Processing • Python</p>
+        <p>Built end-to-end pipeline converting videos to gait events (HS, TO, FF) with annotated video outputs and sub-phase segmentation using filters like Hampel & Savitzky-Golay.</p>
+      </div>
+      <div class="card">
+        <h3>GenAI Research & Prompt Engineering</h3>
+        <p class="meta">LLMs • ChatGPT • Claude • Paper QA</p>
+        <p>Designed GenAI flows for summarizing research papers, performing scientific Q&A, writing code, and assisting in experimental design using large language models.</p>
+      </div>
+      <div class="card">
+        <h3>Echo State Networks</h3>
+        <p class="meta">Reservoir Computing • MNIST • ECG5000</p>
+        <p>Studied ESN behaviors with respect to initialization and data regimes, benchmarking them against classic regression methods and visualizing reservoir dynamics.</p>
+      </div>
+    </section>
 
-        <!-- ESN -->
-        <article class="card card--span4">
-          <div class="card-content">
-            <h3>Echo State Networks (ESN) Experiments</h3>
-            <p class="meta">Reservoir Computing • MNIST • ECG5000 • Weight‑init studies</p>
-            <p class="clamp-3">ESN vs Linear Regression baselines; experiments on MNIST & ECG5000; analysis of reservoir weight initialization.</p>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://github.com/rmehmood786/Reservoir-computing-and-Echo-State-Network-ESN-" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" href="https://colab.research.google.com/github/rmehmood786/Reservoir-computing-and-Echo-State-Network-ESN-/blob/main/Reservoir_computing.ipynb" target="_blank" rel="noopener">Open in Colab</a>
-          </div>
-        </article>
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="card">
+        <ul>
+          <li><em>Gait Phase Identification and Feature Extraction</em> (Mehmood, Topham, Khan — in preparation, 2025)</li>
+        </ul>
+      </div>
+    </section>
 
-        <!-- LFSR -->
-        <article class="card card--span4">
-          <div class="card-content">
-            <h3>Linear Feedback Shift Register (LFSR)</h3>
-            <p class="meta">Cryptography • Python utility</p>
-            <p class="clamp-3">Fibonacci LFSR with reconfigurable taps, period checks, and %-agreement helper.</p>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://github.com/rmehmood786/Linear-Feedback-Shift-Register" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </article>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:rashidmehmood5914@gmail.com">rashidmehmood5914@gmail.com</a></p>
+        <p>
+          <a href="https://github.com/rmehmood786" class="btn" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/rashid-mehmood-aimachinelearningengineer" class="btn" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+  </main>
 
-        <!-- COVID -->
-        <article class="card card--span4">
-          <div class="card-content">
-            <h3>COVID‑19 Prediction (notebook)</h3>
-            <p class="meta">scikit‑learn • feature engineering • baseline forecasting</p>
-            <p class="clamp-3">Time‑aware splits, lag/rolling features, and a clean 30‑day demo notebook.</p>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://colab.research.google.com/github/rmehmood786/covid19-prediction/blob/main/Covid_19_prediction.ipynb" target="_blank" rel="noopener">Open in Colab</a>
-          </div>
-        </article>
-
-        <!-- ABOUT / Pubs -->
-        <article id="about" class="card card--span8">
-          <div class="card-content">
-            <h3>About & Publications</h3>
-            <p class="meta">Human motion analysis • ML for health</p>
-            <ul>
-              <li>In prep (2025): <i>Gait Phase Identification and Feature Extraction</i> (Mehmood, Topham, Khan).</li>
-             
-            </ul>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <footer>
-      © <span id="y"></span> Rashid Mehmood ·
-      <a href="mailto:rashidmehmood5914@gmail.com">Email</a> ·
-      <a href="https://www.linkedin.com/in/rashid-mehmood-aimachinelearningengineer" target="_blank" rel="noopener">LinkedIn</a> ·
-      <a href="https://github.com/rmehmood786" target="_blank" rel="noopener">GitHub</a>
-    </footer>
-  </div>
-
-  <!-- Toast -->
-  <div id="toast" role="status" aria-live="polite" aria-atomic="true">Email copied</div>
-
-  <script>
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Clipboard helper with toast
-    function copyEmail(){
-      const email = 'rashidmehmood5914@gmail.com';
-      const toast = document.getElementById('toast');
-      if (navigator.clipboard && window.isSecureContext){
-        navigator.clipboard.writeText(email).then(()=>{
-          toast.classList.add('show');
-          setTimeout(()=>toast.classList.remove('show'), 1400);
-        }).catch(()=>{ alert(email); });
-      } else {
-        // Fallback
-        const ta = document.createElement('textarea');
-        ta.value = email; document.body.appendChild(ta); ta.select();
-        try { document.execCommand('copy'); } catch(e) {}
-        document.body.removeChild(ta);
-        toast.classList.add('show');
-        setTimeout(()=>toast.classList.remove('show'), 1400);
-      }
-    }
-
-    // Open Gmail compose + mailto fallback
-    function openEmail(subject, body){
-      const to = 'rashidmehmood5914@gmail.com';
-      const gmail = `https://mail.google.com/mail/?view=cm&to=${to}&su=${encodeURIComponent(subject)}&body=${body}`;
-      window.open(gmail, '_blank', 'noopener');
-      window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
-      return false;
-    }
-  </script>
+  <footer>
+    © 2025 Rashid Mehmood — Portfolio & CV Website
+  </footer>
 </body>
 </html>
