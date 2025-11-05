@@ -1,4 +1,4 @@
-# 🌐 Rashid Mehmood — Portfolio Website
+# 🌐 Rashid Mehmood (Portfolio Website)
 
 This repository hosts my personal portfolio site: [rmehmood786.github.io](https://rmehmood786.github.io).  
 The site highlights my work in **Artificial Intelligence (AI)**, **Machine Learning (ML)**, and **Human Motion Analysis**, with a special focus on **Gait Analysis** and **Echo State Networks (ESNs)**.  
